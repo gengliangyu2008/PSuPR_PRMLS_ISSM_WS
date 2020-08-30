@@ -39,8 +39,8 @@ history=model.fit(X_train, y_train, validation_split=0.25, epochs=80, batch_size
 # Plot training & validation accuracy values
 import matplotlib.pyplot as plt
 
-plt.plot(history.history['acc'])
-plt.plot(history.history['val_acc'])
+plt.plot(history.history['accuracy'])
+plt.plot(history.history['val_accuracy'])
 plt.title('Model accuracy')
 plt.ylabel('Accuracy')
 plt.xlabel('Epoch')
