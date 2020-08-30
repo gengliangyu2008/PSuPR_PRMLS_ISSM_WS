@@ -4,7 +4,7 @@
 import numpy as np
 import sklearn.metrics as metrics
 
-from tensorflow.keras.callbacks import ModelCheckpoint, CSVLogger
+from keras.callbacks import ModelCheckpoint, CSVLogger
 
 # fix random seed for reproducibility
 from kmnist.data_reading import tsDat, trDat, trLbl, tsLbl, num_classes
