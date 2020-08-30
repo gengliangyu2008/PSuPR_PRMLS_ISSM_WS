@@ -3,39 +3,14 @@
 
 # ## MLP using Sklearn
 
-from sklearn.preprocessing import StandardScaler
-from sklearn import metrics 
+from sklearn import metrics
 from sklearn.metrics import classification_report, confusion_matrix 
-from sklearn.model_selection import train_test_split
-import numpy
 
-
-# fix random seed for reproducibility
-seed = 7
-numpy.random.seed(seed)
-
-
-# load pima indians dataset
-dataset = numpy.loadtxt("pima-indians-diabetes.csv", delimiter=",")
-# split into input (X) and output (Y) variables
-X = dataset[:,0:8]
-y = dataset[:,8]
-
-
-# train_test_split
-X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=1/3,random_state=42, stratify=y)
-
-
-# Normalization
-scaler = StandardScaler()
-scaler.fit(X_train)
-
-X_train = scaler.transform(X_train)  
-X_test = scaler.transform(X_test)  
-
+from D1_data_load import X_train, y_train, X_test, y_test
 
 from sklearn.neural_network import MLPClassifier
-mlp = MLPClassifier(hidden_layer_sizes=(10,10), max_iter=1000, verbose=2)  
+
+mlp = MLPClassifier(hidden_layer_sizes=(10,10), max_iter=800, verbose=2)
 mlp.fit(X_train, y_train)  
 
 
@@ -58,7 +33,6 @@ plt.ylabel("loss function")
 plt.show()
 
 
-mlp.intercepts_[0]
+print("mlp.intercepts_[0]", mlp.intercepts_[0])
 
-
-mlp.coefs_[0]
+print("mlp.coefs_[0]", mlp.coefs_[0])

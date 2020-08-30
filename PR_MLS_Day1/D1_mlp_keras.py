@@ -1,8 +1,14 @@
+#!/usr/bin/env python
+# coding: utf-8
+
 # ## MLP using keras
 
 from keras.models import Sequential
 from keras.layers import Dense
+from sklearn import metrics
+from sklearn.metrics import classification_report, confusion_matrix
 
+from D1_data_load import X_train, y_train, X_test, y_test
 
 # create keras model
 model = Sequential()
@@ -31,6 +37,8 @@ history=model.fit(X_train, y_train, validation_split=0.25, epochs=80, batch_size
 
 
 # Plot training & validation accuracy values
+import matplotlib.pyplot as plt
+
 plt.plot(history.history['acc'])
 plt.plot(history.history['val_acc'])
 plt.title('Model accuracy')
