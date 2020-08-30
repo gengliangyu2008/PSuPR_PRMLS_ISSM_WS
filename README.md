@@ -1,0 +1,1 @@
+# PATTERN_RECOGNITION_SYSTEMS Workshop Projects
